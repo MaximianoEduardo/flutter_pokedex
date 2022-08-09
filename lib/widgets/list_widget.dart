@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pokedex/widgets/detail_pokemon_item.dart';
 
 import '../models/pokemon.dart';
 
@@ -17,35 +18,32 @@ class DetailListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 0,
-      left: 0,
-      right: 0,
-      height: 200,
+    return SliverToBoxAdapter(
       child: Container(
         color: pokemon.baseColor,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(),
             ),
             SizedBox(
-              height: 150,
+              height: 300,
               width: 500,
               child: PageView(
                 onPageChanged: (index) {
                   onChangePokemon(list[index]);
                 },
                 controller: controller,
-                children: list
-                    .map((e) => Image.network(
-                          e.image,
-                          alignment: Alignment.bottomCenter,
-                          fit: BoxFit.contain,
-                        ))
-                    .toList(),
+                children: list.map(
+                  (e) {
+                    bool diff = e.name != pokemon.name;
+                    return DetailsPokemonItem(
+                      isDiff: diff,
+                      pokemon: e,
+                    );
+                  },
+                ).toList(),
               ),
             ),
           ],

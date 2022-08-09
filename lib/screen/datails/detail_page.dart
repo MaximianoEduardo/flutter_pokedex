@@ -20,30 +20,61 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(pokemon.name),
-          elevation: 0,
-          backgroundColor: pokemon.baseColor,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Center(child: Text('#${pokemon.num}')),
-            )
-          ],
+        body:
+            CustomScrollView(physics: const ClampingScrollPhysics(), slivers: [
+      SliverAppBar(
+        pinned: true,
+        elevation: 0,
+        title: Text(pokemon.name),
+        backgroundColor: pokemon.baseColor,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Center(child: Text('#${pokemon.num}')),
+          )
+        ],
+        leading: IconButton(
+          onPressed: onBack,
+          icon: const Icon(
+            Icons.chevron_left,
+          ),
         ),
-        body: Stack(
-          children: [
-            // AppBarColor(
-            //   pokemon: pokemon,
-            //   onBack: onBack,
-            // ),
-            DetailListWidget(
-              pokemon: pokemon,
-              list: list,
-              controller: controller,
-              onChangePokemon: onChangedPokemon,
-            )
-          ],
-        ));
+      ),
+      DetailListWidget(
+        pokemon: pokemon,
+        list: list,
+        controller: controller,
+        onChangePokemon: onChangedPokemon,
+      ),
+      SliverToBoxAdapter(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Stack(
+            children: [
+              Container(
+                color: pokemon.baseColor,
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24))),
+              ),
+            ],
+          ),
+        ),
+      )
+    ]));
+
+    // Stack(
+    //   children: [
+    //     // AppBarColor(
+    //     //   pokemon: pokemon,
+    //     //   onBack: onBack,
+    //     // ),
+    //
+    //   ],
+    // ));
   }
 }
