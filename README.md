@@ -1,16 +1,33 @@
-# flutter_pokedex
 
-A new Flutter project.
+# Flutter Pokedex
 
-## Getting Started
+Projeto seguindo passos de como criar uma pokedex em Flutter. Apenas para estudos
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+![HomeScreen](https://github.com/MaximianoEduardo/flutter_pokedex/blob/main/lib/assets/Home.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![PokemonPage](https://github.com/MaximianoEduardo/flutter_pokedex/blob/main/lib/assets/Pokemon.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Funcionalidades
+
+- Listando da API
+- Mudando Cores de acordo com o tipo
+- Animações
+- States
+
+
+## Stack utilizada
+
+Flutter, Dio
+
+
+## Referência
+
+
+ - [Flutter Pokedex](https://www.youtube.com/c/RenatoMotaDev/videos)
+
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
